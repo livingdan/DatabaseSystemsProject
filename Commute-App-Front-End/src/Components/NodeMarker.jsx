@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Marker } from "react-leaflet";
+import { LayerGroup, Marker } from "react-leaflet";
 
 export const NodeMarker = () => {
   const [poiMarker, SetPoiMarker] = useState([])
@@ -12,10 +12,10 @@ export const NodeMarker = () => {
   },[]);
 
   return (
-    <>
+    <LayerGroup>
     {poiMarker.map(pos => (
       <Marker position ={[pos.latitude,pos.longitude]} />
     ))}
-    </>
+    </LayerGroup>
   )
 }
