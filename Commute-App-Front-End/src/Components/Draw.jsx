@@ -20,7 +20,7 @@ export const Draw = () => {
   return (
     <FeatureGroup>
         <EditControl 
-        position="topleft" 
+        position="topright" 
         onCreated={_onCreated} 
         onEdited={_onEdited} 
         onDeleted={_onDeleted}

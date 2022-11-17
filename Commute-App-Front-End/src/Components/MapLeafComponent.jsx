@@ -1,8 +1,10 @@
 import {useState, useEffect, useRef } from "react";
 import { MapContainer, TileLayer, useMap, useMapEvents} from "react-leaflet";
-import { Draw } from "../Draw";
+import { Draw } from "./Draw";
 import { CustomLayers } from "./CustomLayers";
+import { DisplayPolyline } from "./DisplayPolyline";
 import { LocationButton } from "./LocationButton";
+
 
 
 export const MapLeafComponent = () => {
@@ -12,27 +14,7 @@ export const MapLeafComponent = () => {
 
 
 
-  useEffect(() => {
-  },[])
-  //const position = [pk[0].lat,pk[0].long];
-
-  /*
-  function MyComponent() {
-    //const map = useMap()
-    //console.log('map bounds:', map.getBounds())
-    //return null
-    const map = useMapEvents({
-      click: () => {
-        map.locate()
-      },
-      locationfound: (location) => {
-        console.log('location found:', location)
-        map.flyTo(location.latlng)
-      },
-    })
-    return null
-  }
-*/
+  
 
   return ( 
 
@@ -44,6 +26,7 @@ export const MapLeafComponent = () => {
     <CustomLayers/>
     {/*<MyComponent/>*/}
     <LocationButton/>
+    <DisplayPolyline/>
     <Draw/>
   </MapContainer>
 
