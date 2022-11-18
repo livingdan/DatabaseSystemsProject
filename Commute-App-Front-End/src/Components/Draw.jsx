@@ -5,7 +5,7 @@ import { FeatureGroup } from 'react-leaflet'
 
 export const Draw = () => {
     const _onCreated = e => {
-        console.log(e)
+        console.log(e.layer._latlngs)
     }
 
     const _onEdited = e => {
