@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { LayerGroup, Marker } from "react-leaflet";
 
-export const NodeMarker = () => {
+export const NodeMarker = ({id}) => {
   const [poiMarker, SetPoiMarker] = useState([])
 
 
   useEffect(() => {
-    axios.get('http://localhost:8080/pointnode')
+    axios.get(`http://localhost:8080/pointnode/${id}`)
     .then(res => SetPoiMarker(res.data));
   },[]);
 

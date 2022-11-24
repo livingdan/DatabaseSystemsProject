@@ -26,7 +26,6 @@ export const MapLeafComponent = () => {
     <CustomLayers/>
     {/*<MyComponent/>*/}
     <LocationButton/>
-    <DisplayPolyline/>
     <Draw/>
   </MapContainer>
 

@@ -1,26 +1,39 @@
-import React from 'react'
-import { Polyline } from 'react-leaflet'
-import polyline from '../data/polyline.json'
+import {useState, useEffect} from 'react';
+import { Polyline, LayerGroup, FeatureGroup } from 'react-leaflet';
+import polyline from '../data/polyline.json';
+import axios from 'axios';
 
-export const DisplayPolyline = () => {
+export const DisplayPolyline = ({id}) => {
+
+const [plines, setPlines] = useState([])
 
 /*polyline.line_points.map(ln => {
     console.log(ln.latitude + " " + ln.longitude)
 
 }) 
 */
+
+useEffect(() => {
+  axios.get(`http://localhost:8080/lineseegment/${id}`)
+  .then(res => setPlines(res.data));
+},[]);
+
+
 console.log(polyline.line_points)
-const latlongs = []
 
 polyline.line_points.map(ln => {
-    latlongs.push([ln.latitude,ln.longitude])
+    plines.push([ln.latitude,ln.longitude])
 
 }) 
 
-console.log(latlongs)
+console.log(plines)
 
   return (
-    <Polyline positions={latlongs}/>
+    <FeatureGroup>
+    
+      <Polyline positions={plines}/>
+    
+    </FeatureGroup>
   )
 }
  
