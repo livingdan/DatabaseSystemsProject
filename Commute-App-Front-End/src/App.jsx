@@ -6,10 +6,7 @@ import { Grid } from '@mui/material';
 function App() {
   return (
     <Grid container>
-      <Grid item xs={2} >
-       test
-     </Grid>
-     <Grid item xs={10}>
+     <Grid item xs={12}>
       <MapLeafComponent />
         </Grid>
     </Grid>

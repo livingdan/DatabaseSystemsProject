@@ -14,7 +14,7 @@ export const NodeMarker = ({id}) => {
   return (
     <LayerGroup>
     {poiMarker.map(pos => (
-      <Marker position ={[pos.latitude,pos.longitude]} />
+      <Marker key={pos.id} position ={[pos.latitude,pos.longitude]} />
     ))}
     </LayerGroup>
   )

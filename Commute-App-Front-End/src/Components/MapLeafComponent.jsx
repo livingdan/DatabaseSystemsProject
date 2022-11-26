@@ -1,8 +1,7 @@
-import {useState, useEffect, useRef } from "react";
+import {useState, useRef } from "react";
 import { MapContainer, TileLayer, useMap, useMapEvents} from "react-leaflet";
 import { Draw } from "./Draw";
 import { CustomLayers } from "./CustomLayers";
-import { DisplayPolyline } from "./DisplayPolyline";
 import { LocationButton } from "./LocationButton";
 
 
