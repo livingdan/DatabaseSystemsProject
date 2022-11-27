@@ -2,29 +2,48 @@ import React from 'react'
 import {EditControl} from "react-leaflet-draw"
 import "leaflet-draw/dist/leaflet.draw.css"
 import { FeatureGroup } from 'react-leaflet'
+import { useDispatch } from 'react-redux'
+import { setPoiLatlong, setLineLatlong} from '../slices/typeSlice'
 
 export const Draw = () => {
 
-    const _onCreated = e => {
+    const dispatch = useDispatch();
 
-        e.layer.bindPopup("<Button variant='contained' > Save Marker </Button>")
-        console.log(e)
-        //console.log(e.layer._latlngs)
+  
+    const _onCreated = e => {
+        console.log(e);
+        if(e.layerType === "marker"){
+            dispatch(setPoiLatlong({latitude: e.layer._latlng.lat,
+                                longitude: e.layer._latlng.lng
+                                })); // marker
+        } else if(e.layerType === "polyline"){
+            const polylineJson = [];
+            var orderCount = 1;
+            e.layer._latlngs.map((latlng) => {
+                polylineJson.push({ id: {order: orderCount},
+                                    latitude: latlng.lat,
+                                    longitude: latlng.lng
+
+                });
+                orderCount += 1;
+            })
+            dispatch(setLineLatlong(polylineJson));
+        }
 
     }
 
     const _onEdited = e => {
-        console.log(e)
+        console.log(e);
     }
 
     const _onDeleted= e => {
-        console.log(e)
+        console.log(e);
     }
 
 
   return (
     <FeatureGroup>
-        <EditControl 
+        <EditControl
         position="topright" 
         onCreated={_onCreated} 
         onEdited={_onEdited} 

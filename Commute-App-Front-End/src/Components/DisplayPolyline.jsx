@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { Polyline, LayerGroup, FeatureGroup } from 'react-leaflet';
+import { Polyline, LayerGroup, FeatureGroup, Popup } from 'react-leaflet';
 import axios from 'axios';
 
 export const DisplayPolyline = ({id}) => {
@@ -22,7 +22,16 @@ useEffect(() => {
           latlng.push([l.latitude, l.longitude])
           return null
         });
-       return <Polyline key={ln.lineId} positions={latlng} />
+       return(
+              <Polyline key={ln.lineId} positions={latlng} >
+              <Popup >
+                line id: {ln.lineId}
+                <br/>
+                Text: {ln.textField}
+
+              </Popup>
+              </Polyline>
+              )
       })
 
     }
