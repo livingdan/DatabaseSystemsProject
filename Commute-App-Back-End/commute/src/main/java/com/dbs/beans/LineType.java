@@ -15,7 +15,7 @@ public class LineType {
 	@Column(name="type_id")
 	private int typeId;
 	
-	@Column(name="type_description")
+	@Column(name="type_desc")
 	private String typeDescription;
 
 	

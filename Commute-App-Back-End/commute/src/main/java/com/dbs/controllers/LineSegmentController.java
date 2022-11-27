@@ -12,37 +12,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dbs.beans.PointNode;
-import com.dbs.repositories.PointNodeRepository;
+import com.dbs.beans.LineSegment;
+import com.dbs.repositories.LineSegmentRepository;
+import com.dbs.services.GenericService;
 
 @RestController
-@RequestMapping("/pointnode")
+@RequestMapping("/linesegment")
 @CrossOrigin(origins = "*")
-public class PointNodeController {
+public class LineSegmentController {
+
+	@Autowired
+	private LineSegmentRepository repository;
 	
 	@Autowired
-	private PointNodeRepository repository;
+	private GenericService service;
 	
 	@GetMapping
-	public List<PointNode> findAll() {
+	public List<LineSegment> findAll() {
 		return repository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public List<PointNode> findByAmenityId(@PathVariable int id){
-		return repository.findByAmenity(id);
-		
+	public List<LineSegment> findByLineType(@PathVariable int id) {
+		return repository.findByLineType(id);
 	}
 	
 	@PostMapping
-	public PointNode save(@RequestBody PointNode pointNode) {
-		return repository.save(pointNode);
+	public LineSegment saveLineSegment(@RequestBody LineSegment lineSegment) {
+		return service.savePolyline(lineSegment);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable int id) {
+		service.deletePolylineByLineId(id);
 		repository.deleteById(id);
 	}
-	
-
 }
