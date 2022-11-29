@@ -69,7 +69,7 @@ function App() {
   return (
     <Grid container>
       <Grid item xs={2}>
-        <Button onClick={handleClick}> Add to Map </Button>
+        <Button onClick={handleClick} variant="contained"> Add to Map </Button>
         {
         isDisplayed && <>
         
@@ -88,7 +88,7 @@ function App() {
             <MenuItem value={6}>Need Help</MenuItem>
           </Select>
         </FormControl>  
-        <Button onClick={handleSaveMarker}> Save Marker </Button>
+        <Button onClick={handleSaveMarker} variant="contained" color="success"> Save Marker </Button>
 
         <FormControl fullWidth>
           <InputLabel id="select-line-type">Line</InputLabel>
@@ -110,7 +110,7 @@ function App() {
         multiline 
         defaultValue={lineText}
         onChange={(e) => dispatch(setLineText(e.target.value))} /> 
-        <Button onClick={handleSaveLine}> Save Line Segment </Button>       
+        <Button onClick={handleSaveLine} variant="contained" color="success"> Save Line Segment </Button>       
         </>
       }
       </Grid>

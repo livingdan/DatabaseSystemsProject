@@ -19,30 +19,29 @@ import com.dbs.repositories.PointNodeRepository;
 @RequestMapping("/pointnode")
 @CrossOrigin(origins = "*")
 public class PointNodeController {
-	
+
 	@Autowired
 	private PointNodeRepository repository;
-	
+
 	@GetMapping
 	public List<PointNode> findAll() {
 		return repository.findAll();
 	}
-	
+
 	@GetMapping("/{id}")
-	public List<PointNode> findByAmenityId(@PathVariable int id){
+	public List<PointNode> findByAmenityId(@PathVariable int id) {
 		return repository.findByAmenity(id);
-		
+
 	}
-	
+
 	@PostMapping
 	public PointNode save(@RequestBody PointNode pointNode) {
 		return repository.save(pointNode);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable int id) {
 		repository.deleteById(id);
 	}
-	
 
 }

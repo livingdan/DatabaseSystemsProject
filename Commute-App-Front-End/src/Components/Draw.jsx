@@ -26,6 +26,7 @@ export const Draw = () => {
 
                 });
                 orderCount += 1;
+                return null;
             })
             dispatch(setLineLatlong(polylineJson));
         }

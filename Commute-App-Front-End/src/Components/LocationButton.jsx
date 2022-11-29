@@ -1,8 +1,11 @@
 import L from "leaflet";
-import {useState, useEffect, useRef } from "react";
-import { MapContainer, TileLayer, useMap, useMapEvents} from "react-leaflet";
+import {useEffect } from "react";
+import {useMap} from "react-leaflet";
 import styles from "./location-button.module.css";
-
+/*
+Functionality of this component from https://github.com/tomik23/react-leaflet-examples
+with minor edits by me(Daniel L)
+*/
 
 export const LocationButton = () => {
 

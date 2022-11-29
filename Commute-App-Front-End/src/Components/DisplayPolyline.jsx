@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react';
-import { Polyline, LayerGroup, FeatureGroup, Popup } from 'react-leaflet';
+import { Polyline, LayerGroup, Popup } from 'react-leaflet';
 import axios from 'axios';
+import { Button } from '@mui/material';
 
 export const DisplayPolyline = ({id}) => {
 
@@ -11,6 +12,16 @@ useEffect(() => {
   axios.get(`http://localhost:8080/linesegment/${id}`)
   .then(res => setPlines(res.data));
 },[id]);
+
+const handleClick = async(e,id) => {
+  try {
+    e.preventDefault();
+    console.log(id)
+    await axios.delete(`http://localhost:8080/linesegment/${id}`);
+    } catch(err) {
+        console.error(err);
+    }
+}
 
   return (
     <LayerGroup>
@@ -25,10 +36,9 @@ useEffect(() => {
        return(
               <Polyline key={ln.lineId} positions={latlng} >
               <Popup >
-                line id: {ln.lineId}
-                <br/>
                 Text: {ln.textField}
-
+                <br/>
+                <Button onClick={(e) => handleClick(e,ln.id)}>Delete</Button>
               </Popup>
               </Polyline>
               )

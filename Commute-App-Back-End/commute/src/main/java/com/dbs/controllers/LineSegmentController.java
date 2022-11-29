@@ -23,25 +23,25 @@ public class LineSegmentController {
 
 	@Autowired
 	private LineSegmentRepository repository;
-	
+
 	@Autowired
 	private GenericService service;
-	
+
 	@GetMapping
 	public List<LineSegment> findAll() {
 		return repository.findAll();
 	}
-	
+
 	@GetMapping("/{id}")
 	public List<LineSegment> findByLineType(@PathVariable int id) {
 		return repository.findByLineType(id);
 	}
-	
+
 	@PostMapping
 	public LineSegment saveLineSegment(@RequestBody LineSegment lineSegment) {
 		return service.savePolyline(lineSegment);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable int id) {
 		service.deletePolylineByLineId(id);

@@ -29,7 +29,7 @@ export const CustomLayers = () => {
       </LayersControl.Overlay>
     ))}
       {lineType.map(ln => (
-        <LayersControl.Overlay key={ln.typeId} name={ln.typeDescription}   >
+        <LayersControl.Overlay key={ln.typeId} name={ln.typeDescription + ' lineSegment'}   >
           <DisplayPolyline id={ln.typeId}/>
         </LayersControl.Overlay>  
 

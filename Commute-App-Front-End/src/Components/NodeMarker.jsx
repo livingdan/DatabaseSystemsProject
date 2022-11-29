@@ -10,7 +10,7 @@ export const NodeMarker = ({id}) => {
   useEffect(() => {
     axios.get(`http://localhost:8080/pointnode/${id}`)
     .then(res => SetPoiMarker(res.data));
-  },[]);
+  },[id]);
 
   const handleClick = async(e,id) => {
     try {
@@ -27,8 +27,6 @@ export const NodeMarker = ({id}) => {
     {poiMarker.map(pos => (
       <Marker key={pos.id} position ={[pos.latitude,pos.longitude]} >
         <Popup>
-          id: {pos.id}
-          <br/>
           {pos.amenity.type}
           <br/>
           <Button onClick={(e) => handleClick(e,pos.id)}>Delete</Button>

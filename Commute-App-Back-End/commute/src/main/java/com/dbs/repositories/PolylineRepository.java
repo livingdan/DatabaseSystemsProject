@@ -7,6 +7,6 @@ import com.dbs.beans.PolyLineCompositKey;
 import com.dbs.beans.Polyline;
 
 @Repository
-public interface PolylineRepository extends JpaRepository<Polyline, PolyLineCompositKey>{
+public interface PolylineRepository extends JpaRepository<Polyline, PolyLineCompositKey> {
 
 }

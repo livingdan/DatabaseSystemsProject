@@ -14,24 +14,24 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="line_segment")
+@Table(name = "line_segment")
 public class LineSegment {
 
 	@Id
-	@Column(name="line_id")
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name = "line_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int lineId;
-	
-	@Column(name="text_field")
+
+	@Column(name = "text_field")
 	private String textField;
-	
+
 	@ManyToOne
-	@JoinColumn(name="type_id")
+	@JoinColumn(name = "type_id")
 	private LineType lineType;
-	
-	@OneToMany(mappedBy="id.lineSegment")
+
+	@OneToMany(mappedBy = "id.lineSegment")
 	private List<Polyline> polylines;
-	
+
 	public LineSegment() {
 		super();
 	}
@@ -99,6 +99,4 @@ public class LineSegment {
 		return "LineSegment [lineId=" + lineId + ", textField=" + textField + ", lineType=" + lineType + "]";
 	}
 
-	
-	
 }

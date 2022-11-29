@@ -10,7 +10,7 @@ import com.dbs.beans.PointNode;
 
 @Repository
 public interface PointNodeRepository extends JpaRepository<PointNode, Integer> {
-	
+
 	@Query("From PointNode pn where pn.amenity.id = ?1")
 	public List<PointNode> findByAmenity(int id);
 
