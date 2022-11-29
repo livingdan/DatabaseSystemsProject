@@ -4,8 +4,6 @@ import { Draw } from "./Draw";
 import { CustomLayers } from "./CustomLayers";
 import { LocationButton } from "./LocationButton";
 
-
-
 export const MapLeafComponent = () => {
 
   const [centerInit] = useState([29.430325, -98.495168]);

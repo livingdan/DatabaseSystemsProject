@@ -9,7 +9,7 @@ export const Draw = () => {
 
     const dispatch = useDispatch();
 
-  
+  // stores most recently created latlng/s to redux store
     const _onCreated = e => {
         console.log(e);
         if(e.layerType === "marker"){

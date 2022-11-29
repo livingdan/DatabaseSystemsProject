@@ -6,10 +6,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { setPoiType, setLineType, setLineText} from './slices/typeSlice'
 import axios from 'axios';
 
-
-
-
-
 function App() {
   const [isDisplayed, setIsDisplayed] = useState(false)
   const poiType = useSelector((state) => state.typeSelect.poiType);
@@ -17,15 +13,14 @@ function App() {
   const lineType = useSelector((state) => state.typeSelect.lineType);
   const lineText = useSelector((state) => state.typeSelect.lineText);
   const lineLatlong = useSelector((state) => state.typeSelect.lineLatlong);
-
   const dispatch = useDispatch();
-  //const [lineType] = useState('')
-  //const [lineText] = useState('')
 
+  // on click renders form and buttons to add POI and Line
   const handleClick = async() => {
     setIsDisplayed(!isDisplayed)
   }
 
+  // saves the most recent marker created to database
   const handleSaveMarker = async(e) => {
     try {
       e.preventDefault();
@@ -45,6 +40,7 @@ function App() {
       }
   }
 
+//saves the most recent polyline created to database
   const handleSaveLine = async(e) => {
     console.log(lineLatlong)
     try {

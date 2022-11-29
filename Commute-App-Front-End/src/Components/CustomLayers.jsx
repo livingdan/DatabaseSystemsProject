@@ -8,7 +8,7 @@ export const CustomLayers = () => {
   const [nodeAmenity, setNodeAmentiy] = useState([]);
   const [lineType, setLineType] = useState([]);
 
-
+// gets names of amenities and linetypes in database
   useEffect(() => {
     axios.get(`http://localhost:8080/amenity`)
         .then(res => {
