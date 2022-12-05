@@ -3,16 +3,20 @@ import { Polyline, LayerGroup, Popup } from 'react-leaflet';
 import axios from 'axios';
 import { Button } from '@mui/material';
 
+// functionality to display polylines from database 
+
 export const DisplayPolyline = ({id}) => {
 
 const [plines, setPlines] = useState([])
 
-
+// gets polylines from database on compnent load
 useEffect(() => {
   axios.get(`http://localhost:8080/linesegment/${id}`)
   .then(res => setPlines(res.data));
 },[id]);
 
+
+// gives ability to delete polyline from popup display
 const handleClick = async(e,id) => {
   try {
     e.preventDefault();

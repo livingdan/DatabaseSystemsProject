@@ -4,6 +4,8 @@ import { NodeMarker } from './NodeMarker'
 import axios from 'axios'
 import { DisplayPolyline } from './DisplayPolyline'
 
+// Custom layers drives the display of points and polylines from database
+
 export const CustomLayers = () => {
   const [nodeAmenity, setNodeAmentiy] = useState([]);
   const [lineType, setLineType] = useState([]);

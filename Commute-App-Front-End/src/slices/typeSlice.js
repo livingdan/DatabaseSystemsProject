@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// redux slice to help pass values from the leaflet component 
+
 const typeSlice = createSlice({
     name: 'typeSelect', 
     initialState: {

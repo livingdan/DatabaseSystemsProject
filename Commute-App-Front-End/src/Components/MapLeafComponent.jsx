@@ -4,6 +4,8 @@ import { Draw } from "./Draw";
 import { CustomLayers } from "./CustomLayers";
 import { LocationButton } from "./LocationButton";
 
+// main display of open street map using react-leaflet
+
 export const MapLeafComponent = () => {
 
   const [centerInit] = useState([29.430325, -98.495168]);

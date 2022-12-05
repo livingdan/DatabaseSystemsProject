@@ -7,6 +7,8 @@ import { setPoiType, setLineType, setLineText} from './slices/typeSlice'
 import axios from 'axios';
 
 function App() {
+
+  // get redux store values
   const [isDisplayed, setIsDisplayed] = useState(false)
   const poiType = useSelector((state) => state.typeSelect.poiType);
   const poiLatlong = useSelector((state) => state.typeSelect.poiLatlong);

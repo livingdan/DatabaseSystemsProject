@@ -5,6 +5,8 @@ import { FeatureGroup } from 'react-leaflet'
 import { useDispatch } from 'react-redux'
 import { setPoiLatlong, setLineLatlong} from '../slices/typeSlice'
 
+// implements react-leaflet-draw aid in drawing and saving POI and polylines
+
 export const Draw = () => {
 
     const dispatch = useDispatch();
@@ -12,11 +14,12 @@ export const Draw = () => {
   // stores most recently created latlng/s to redux store
     const _onCreated = e => {
         console.log(e);
-        if(e.layerType === "marker"){
+
+        if(e.layerType === "marker"){ // POI
             dispatch(setPoiLatlong({latitude: e.layer._latlng.lat,
                                 longitude: e.layer._latlng.lng
-                                })); // marker
-        } else if(e.layerType === "polyline"){
+                                })); 
+        } else if(e.layerType === "polyline"){ // Polyline
             const polylineJson = [];
             var orderCount = 1;
             e.layer._latlngs.map((latlng) => {
@@ -32,7 +35,7 @@ export const Draw = () => {
         }
 
     }
-
+    
     const _onEdited = e => {
         console.log(e);
     }
